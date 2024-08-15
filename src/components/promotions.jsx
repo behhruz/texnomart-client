@@ -2,7 +2,9 @@ import React from 'react'
 
 const Promactions = () => {
   return (
-    <div>promotions</div>
+    <div>
+      <p>Hello Odil</p>
+    </div>
   )
 }
 

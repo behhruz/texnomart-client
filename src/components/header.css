@@ -1,0 +1,123 @@
+/* header.css */
+
+/* Top Bar */
+.top-bar {
+    background-color: #333;
+    color: #fff;
+    padding: 5px 0;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .top-bar .location {
+    margin-left: 15px;
+  }
+  
+  .top-bar .top-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .top-bar .top-links a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .top-bar .contact {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 15px;
+  }
+  
+  .top-bar .contact a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .top-bar .language-dropdown {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  /* Main Navigation */
+  .main-nav {
+    display: flex;
+    align-items: center;
+    background-color: #fff;
+    padding: 10px 0;
+    border-bottom: 1px solid #e6e6e6;
+  }
+  
+  .main-nav .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-left: 15px;
+  }
+  
+  .main-nav .catalog-btn {
+    background-color: #f7a31b;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .main-nav .search-bar {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .main-nav .search-bar input {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 20px;
+  }
+  
+  .main-nav .nav-icons {
+    display: flex;
+    gap: 20px;
+    margin-right: 15px;
+  }
+  
+  .main-nav .nav-icons a {
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  /* Bottom Navigation */
+  .bottom-nav {
+    background-color: #fff;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid #e6e6e6;
+  }
+  
+  .bottom-nav a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
+  .bottom-nav a:hover {
+    color: #f7a31b;
+  }
+  

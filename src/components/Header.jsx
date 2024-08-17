@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./header.css";
+import "./header.css"; // This will include the common styles
 
 const Header = () => {
+  const [isCatalogOpen, setIsCatalogOpen] = useState(false);
+
+  const toggleCatalog = () => {
+    setIsCatalogOpen(!isCatalogOpen);
+  };
+
   return (
     <header className="header">
       <div className="top-bar">
@@ -24,7 +30,7 @@ const Header = () => {
       </div>
       <div className="main-nav">
         <div className="logo">texnomart*</div>
-        <button className="catalog-btn">
+        <button className="catalog-btn" onClick={toggleCatalog}>
           <i className="fas fa-bars"></i> Каталог
         </button>
         <div className="search-bar">
@@ -43,8 +49,68 @@ const Header = () => {
         <Link to="/smartphones">СМАРТФОНЛАР</Link>
         <Link to="/refrigerators">МУЗЛАТГИЧЛАР</Link>
         <Link to="/vacuum-cleaners">ЧАНГЮТГИЧЛАР</Link>
-        <Link to="/all-catigories">БАРЧА КАТЕГОРИЯЛАР</Link>
+        <Link to="/all-categories">БАРЧА КАТЕГОРИЯЛАР</Link>
       </div>
+      {isCatalogOpen && (
+        <div className="catalog-overlay">
+          <div className="catalog">
+            <div className="catalog-sidebar">
+              <div className="catalog-item active">
+                <span>Смартфоны и гаджеты</span>
+              </div>
+              <div className="catalog-item">Компьютерная техника</div>
+              <div className="catalog-item">Телевизоры и телекарты</div>
+              <div className="catalog-item">Климатическая техника</div>
+              <div className="catalog-item">Техника для дома</div>
+              <div className="catalog-item">Офисная техника</div>
+              <div className="catalog-item">Техника для кухни</div>
+              <div className="catalog-item">Посудa для дома</div>
+              <div className="catalog-item">Товары для авто</div>
+              <div className="catalog-item">Аудиотехника и Hi-Fi</div>
+              <div className="catalog-item">Красота и здоровье</div>
+              
+              {}
+              <button className="back-btn" onClick={toggleCatalog}>Назад</button>
+            </div>
+            <div className="catalog-content">
+              <div>
+                <h3>СМАРТФОНЫ</h3>
+                <ul>
+                  <li>Samsung</li>
+                  <li>Xiaomi</li>
+                  <li>Vivo</li>
+                  <li>iPhone</li>
+                  <li>HONOR</li>
+                  <li>Huawei</li>
+                  <li>Infinix</li>
+                  <li>OPPO</li>
+                  <li>Nothing Phone</li>
+                </ul>
+              </div>
+              <div>
+                <h3>ГАДЖЕТЫ</h3>
+                <ul>
+                  <li>Смарт часы</li>
+                  <li>Умные напольные весы</li>
+                </ul>
+              </div>
+              <div>
+                <h3>АКСЕССУАРЫ ДЛЯ ТЕЛЕФОНОВ</h3>
+                <ul>
+                  <li>Внешние аккумуляторы</li>
+                  <li>Держатели для смартфонов</li>
+                  <li>Зарядные устройства</li>
+                  <li>Игровые аксессуары</li>
+                  <li>USB кабель для телефона</li>
+                  <li>Карты памяти</li>
+                  <li>Моноподы для селфи</li>
+                  <li>Наушники и гарнитуры</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </header>
   );
 };

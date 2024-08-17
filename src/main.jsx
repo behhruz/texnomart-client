@@ -11,14 +11,13 @@ import Conditioners from "./components/conditioners";
 import Smartphones from "./components/smartphones";
 import Refrigerators from "./components/refrigerators";
 import Vacuumcleaners from "./components/vacuum-cleaners";
-import Allcatigories from "./components/all-categories";
+import AllCategories from "./components/all-categories";
 import Favorites from "./components/Favorites";
 import Cart from "./components/Cart";
 import Stores from "./components/Stores";
 import Legal from "./components/Legal";
 import PaymentMethods from "./components/PaymentMethods";       
-import LoginPage from "./components/LoginPage";
-
+import Login from "./components/Login";
 
 const router = createBrowserRouter([
     {
@@ -50,8 +49,8 @@ const router = createBrowserRouter([
         element: <Vacuumcleaners />,
     },
     {
-        path: "/all-catigories",
-        element: <Allcatigories />,
+        path: "/all-categories",
+        element: <AllCategories />,
     },
     {
         path: "/favorites",
@@ -75,10 +74,10 @@ const router = createBrowserRouter([
     },
     {
         path: "/login",
-        element: <LoginPage />,
+        element: <Login />,
     },
 ]);
-// Render the application and attach the router
+
 createRoot(document.getElementById("root")).render(
     <RouterProvider router={router} />
 );

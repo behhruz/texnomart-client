@@ -18,6 +18,16 @@ import Stores from "./components/Stores";
 import Legal from "./components/Legal";
 import PaymentMethods from "./components/PaymentMethods";       
 import Login from "./components/Login";
+import Computers from "./components/computers";
+import Tvs from "./components/tvs";
+import Climate from "./components/climate";
+import Hometech from "./components/home-tech";
+import Officetech from "./components/office-tech";
+import Kitchentech from "./components/kitchen-tech";
+import Household from "./components/household";
+import Autogoods from "./components/auto-goods";
+import Audio from "./components/audio";
+import Beautyhealth from "./components/beauty-health";
 
 const router = createBrowserRouter([
     {
@@ -75,6 +85,48 @@ const router = createBrowserRouter([
     {
         path: "/login",
         element: <Login />,
+    },
+    
+    {
+        path: "/tvs",
+        element: <Tvs />,
+    },
+    
+    {
+        path: "/home-tech",
+        element: <Hometech />,
+    },
+    {
+        path: "/office-tech",
+        element: <Officetech />,
+    },
+    {
+        path: "/kitchen-tech",
+        element: <Kitchentech />,
+    },
+    {
+        path: "/household",
+        element: <Household />,
+    },
+    {
+        path: "/auto-goods",
+        element: <Autogoods/>,
+    },
+    {
+        path: "/audio",
+        element: <Audio/>,
+    },
+    {
+        path: "/beauty-health",
+        element: <Beautyhealth/>,
+    },
+    {
+        path: "/computers",
+        element: <Computers/>,
+    },
+    {
+        path: "/climate",
+        element: <Climate/>,
     },
 ]);
 

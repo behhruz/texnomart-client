@@ -1,12 +1,18 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./header.css"; // This will include the common styles
 
 const Header = () => {
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleCatalog = () => {
     setIsCatalogOpen(!isCatalogOpen);
+  };
+
+  const closeCatalog = () => {
+    setIsCatalogOpen(false);
+    navigate("/"); // Redirect to home or any other desired route
   };
 
   return (
@@ -52,25 +58,45 @@ const Header = () => {
         <Link to="/all-categories">БАРЧА КАТЕГОРИЯЛАР</Link>
       </div>
       {isCatalogOpen && (
-        <div className="catalog-overlay">
-          <div className="catalog">
+        <div className="catalog-overlay" onClick={closeCatalog}>
+          <div className="catalog" onClick={(e) => e.stopPropagation()}>
             <div className="catalog-sidebar">
-              <div className="catalog-item active">
-                <span>Смартфоны и гаджеты</span>
-              </div>
-              <div className="catalog-item">Компьютерная техника</div>
-              <div className="catalog-item">Телевизоры и телекарты</div>
-              <div className="catalog-item">Климатическая техника</div>
-              <div className="catalog-item">Техника для дома</div>
-              <div className="catalog-item">Офисная техника</div>
-              <div className="catalog-item">Техника для кухни</div>
-              <div className="catalog-item">Посудa для дома</div>
-              <div className="catalog-item">Товары для авто</div>
-              <div className="catalog-item">Аудиотехника и Hi-Fi</div>
-              <div className="catalog-item">Красота и здоровье</div>
-              
-              {}
-              <button className="back-btn" onClick={toggleCatalog}>Назад</button>
+              <Link to="/smartphones" className="catalog-item active">
+                Смартфоны и гаджеты
+              </Link>
+              <Link to="/computers" className="catalog-item">
+                Компьютерная техника
+              </Link>
+              <Link to="/tvs" className="catalog-item">
+                Телевизоры и телекарты
+              </Link>
+              <Link to="/climate" className="catalog-item">
+                Климатическая техника
+              </Link>
+              <Link to="/home-tech" className="catalog-item">
+                Техника для дома
+              </Link>
+              <Link to="/office-tech" className="catalog-item">
+                Офисная техника
+              </Link>
+              <Link to="/kitchen-tech" className="catalog-item">
+                Техника для кухни
+              </Link>
+              <Link to="/household" className="catalog-item">
+                Посудa для дома
+              </Link>
+              <Link to="/auto-goods" className="catalog-item">
+                Товары для авто
+              </Link>
+              <Link to="/audio" className="catalog-item">
+                Аудиотехника и Hi-Fi
+              </Link>
+              <Link to="/beauty-health" className="catalog-item">
+                Красота и здоровье
+              </Link>
+              <button className="back-btn" onClick={toggleCatalog}>
+                Назад
+              </button>
             </div>
             <div className="catalog-content">
               <div>

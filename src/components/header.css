@@ -1,247 +1,196 @@
+/* header.css */
+
+/* General Header Styles */
+.header {
+  font-family: Arial, sans-serif;
+}
+
 .top-bar {
   background-color: #333333;
   color: white;
-  padding: 5px 0;
-  font-size: 14px;
+  padding: 5px 20px; /* Reduced padding for a tighter fit */
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-size: 13px; /* Slightly smaller font size */
 }
 
 .location {
-  margin-left: 20px;
+  font-size: 13px;
 }
 
-.top-links {
-  display: flex;
-}
-
-.top-links a {
+.top-links a,
+.contact span,
+.contact a {
   color: white;
+  font-size: 13px; /* Reduced font size for top links */
+  margin-left: 10px;
   text-decoration: none;
-  margin: 0 10px;
-}
-
-.top-links a:hover {
-  text-decoration: underline;
-}
-
-.contact {
-  display: flex;
-  align-items: center;
-  margin-right: 20px;
 }
 
 .contact a {
-  color: white;
-  text-decoration: none;
-  margin-left: 5px;
-}
-
-.contact a:hover {
-  text-decoration: underline;
+  font-weight: bold;
 }
 
 .language-dropdown {
-  margin-left: 20px;
+  margin-left: 10px; /* Reduced margin for the language dropdown */
+  cursor: pointer;
 }
 
-/* Main Navigation */
 .main-nav {
-  background-color: #f8f8f8;
+  background-color: white;
+  padding: 10px 20px; /* Slightly reduced padding */
   display: flex;
-  align-items: center;
-  padding: 10px 20px;
   justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eaeaea;
 }
 
 .logo {
-  font-size: 24px;
+  font-size: 28px; /* Slightly smaller font size for the logo */
   font-weight: bold;
+  color: #333;
 }
 
 .catalog-btn {
-  background-color: #ffd200;
+  background-color: #fdd835;
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
+  padding: 8px 16px; /* Reduced padding for the catalog button */
+  font-size: 15px; /* Slightly smaller font size */
   font-weight: bold;
   color: black;
-  border-radius: 5px;
   cursor: pointer;
   display: flex;
   align-items: center;
 }
 
-.catalog-btn:hover {
-  background-color: #e6be00;
-}
-
 .catalog-btn i {
-  margin-right: 10px;
+  margin-right: 8px; /* Reduced margin for the icon */
 }
 
-.search-bar {
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  margin-left: 20px;
-  position: relative;
-}
-
-.search-bar input[type="text"] {
-  width: 100%;
-  padding: 10px 15px;
-  border: 2px solid #ffd200;
+.search-bar input {
+  width: 300px; /* Reduced width for the search bar */
+  padding: 8px; /* Reduced padding */
+  border: 1px solid #fdd835;
   border-radius: 5px;
-  font-size: 16px;
+  outline: none;
+  font-size: 14px; /* Adjusted font size */
 }
 
-.search-bar input[type="text"]::placeholder {
-  color: #cccccc;
-}
-
-.nav-icons {
-  display: flex;
-  align-items: center;
+.search-bar input::placeholder {
+  color: #bbb;
 }
 
 .nav-icons a {
-  color: #333333;
+  color: #333;
+  font-size: 14px; /* Slightly smaller font size for nav icons */
+  margin-left: 15px; /* Reduced margin between icons */
   text-decoration: none;
-  margin: 0 10px;
-  font-size: 16px;
 }
 
-.nav-icons a:hover {
-  text-decoration: underline;
-}
-
-/* Bottom Navigation */
 .bottom-nav {
-  background-color: #ffffff;
+  background-color: #f9f9f9;
+  padding: 8px 20px; /* Reduced padding for bottom nav */
   display: flex;
   justify-content: space-around;
-  padding: 10px 0;
-  border-top: 1px solid #e5e5e5;
-  border-bottom: 1px solid #e5e5e5;
+  font-size: 13px; /* Adjusted font size for bottom nav */
 }
 
 .bottom-nav a {
-  color: #333333;
+  color: #333;
   text-decoration: none;
-  font-size: 16px;
+  font-weight: bold;
 }
 
-.bottom-nav a:hover {
-  text-decoration: underline;
+.bottom-nav a:first-child {
+  color: #ff3e3e;
 }
-/* General catalog overlay styles */
+
+.bottom-nav a:nth-child(2) {
+  background-color: #00c853;
+  color: white;
+  padding: 2px 10px; /* Adjusted padding for the second item */
+  border-radius: 15px;
+}
+
+/* Catalog Styles */
 .catalog-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6); /* Slightly darker semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
-  transition: all 0.3s ease;
+  z-index: 999;
 }
 
-/* Main catalog container */
 .catalog {
-  background-color: #ffffff;
-  width: 80%;
-  max-width: 1100px;
-  display: flex;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  background-color: white;
+  width: 65%; /* Adjusted width */
+  max-width: 900px;
   border-radius: 8px;
+  display: flex;
   overflow: hidden;
-  transform: translateY(-20px);
-  transition: transform 0.3s ease;
 }
 
 .catalog-sidebar {
-  width: 25%;
-  background-color: #f0f0f0; 
-  padding: 20px;
-  border-right: 1px solid #ddd;
+  width: 220px; /* Adjusted width for the sidebar */
+  background-color: #f7f7f7;
+  padding: 15px; /* Reduced padding */
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .catalog-item {
-  padding: 12px 0;
-  cursor: pointer;
+  font-size: 15px; /* Slightly smaller font size */
   color: #333;
-  font-size: 16px;
-  line-height: 1.6;
-  transition: color 0.3s ease;
+  padding: 8px; /* Reduced padding */
+  text-decoration: none;
+  border-left: 4px solid transparent;
+  transition: border-left 0.3s;
 }
 
-.catalog-item:hover {
-  color: #007bff; 
-}
-
+.catalog-item:hover,
 .catalog-item.active {
-  color: #ff9800; 
-  font-weight: bold;
+  border-left: 4px solid #fdd835;
+  background-color: #fffde7;
 }
-
 
 .catalog-content {
-  width: 75%;
-  padding: 30px;
-  background-color: #f9f9f9; 
+  flex-grow: 1;
+  padding: 15px; /* Reduced padding */
+  display: flex;
+  justify-content: space-around;
 }
 
 .catalog-content h3 {
-  font-weight: bold;
-  margin-bottom: 15px;
-  font-size: 20px;
+  font-size: 18px; /* Slightly smaller font size for headers */
   color: #333;
-  border-bottom: 2px solid #ff9800; 
-  padding-bottom: 8px;
+  margin-bottom: 8px; /* Adjusted margin */
 }
 
 .catalog-content ul {
   list-style-type: none;
-  padding: 0;
-  margin: 0;
+  padding-left: 0;
 }
 
 .catalog-content ul li {
-  margin-bottom: 10px;
-  font-size: 16px;
+  font-size: 14px; /* Slightly smaller font size */
   color: #555;
-  transition: color 0.3s ease;
-}
-
-.catalog-content ul li:hover {
-  color: #007bff; 
+  margin-bottom: 5px;
 }
 
 .back-btn {
-  margin-top: 20px;
-  padding: 12px 20px;
-  background-color: #ffc107; 
-  color: #000;
+  margin-top: auto;
+  padding: 8px; /* Reduced padding */
+  background-color: #fdd835;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
+  font-size: 15px; /* Slightly smaller font size */
   font-weight: bold;
-  font-size: 16px;
-  text-align: center;
-  width: 100%;
-  transition: background-color 0.3s ease;
-}
-
-.back-btn:hover {
-  background-color: #e0a800; 
-}
-
-
-.catalog-overlay.open .catalog {
-  transform: translateY(0);
+  color: #333;
 }

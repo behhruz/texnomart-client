@@ -17,7 +17,7 @@ const Header = () => {
 
   return (
     <header className="header">
-      <div className="top-bar">
+      <div className="top-bar h-12">
         <div className="location">
           <i className="fas fa-map-marker-alt"></i> Тошкент
         </div>
@@ -29,9 +29,7 @@ const Header = () => {
         <div className="contact">
           <span>Алоқа маркази :</span>
           <a href="tel:+998712099944">+99871 209 99 44</a>
-          <div className="language-dropdown">
-            <i className="fas fa-globe"></i> Ўз
-          </div>
+          <i className="fas fa-globe mx-4">Ўз</i>
         </div>
       </div>
       <div className="main-nav">
@@ -49,7 +47,7 @@ const Header = () => {
         </div>
       </div>
       <div className="bottom-nav">
-        <Link to="/promotions">АКЦИЯЛАР</Link>
+        <Link className="flex justify-center items-center gap-1" to="/promotions"><span><img className="w-[20px] h-[20px]" src="src/assets/Image.png" alt="" /></span> АКЦИЯЛАР</Link>
         <Link to="/installments">Муддатли тўлов 0•0•12</Link>
         <Link to="/conditioners">ҲАВО СОВУТГИЧЛАР</Link>
         <Link to="/smartphones">СМАРТФОНЛАР</Link>

@@ -3,6 +3,7 @@ import Header from './components/header'
 import Banner from './components/Banner'
 import About from './components/About'
 import Cattegory from './components/Swipper'
+import Product from './components/Product'
 
 const App = () => {
   return (
@@ -10,6 +11,7 @@ const App = () => {
       <Header />
       <Banner />
       <Cattegory />
+      <Product/>
       <About />
 
     </div>

@@ -34,7 +34,7 @@ const Header = () => {
       </div>
       <div className="main-nav">
         <div className="logo">texnomart*</div>
-        <button className="catalog-btn" onClick={toggleCatalog}>
+        <button className="catalog-btn rounded-lg" onClick={toggleCatalog}>
           <i className="fas fa-bars"></i> Каталог
         </button>
         <div className="search-bar">

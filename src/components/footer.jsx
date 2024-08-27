@@ -1,5 +1,8 @@
 import React from 'react';
 
+
+
+
 const Footer = () => {
   return (
     <footer className="bg-gray-800 text-white py-8">
@@ -9,10 +12,10 @@ const Footer = () => {
           <p className="text-2xl">+998 71 209 99 44</p>
           <div className="flex space-x-4">
             <a href="#" className="block">
-              <img src="src/assets/play.png" alt="Google Play" className="h-10"/>
+              <img src="src/assets/play.png" alt="Google Play" className="h-10" />
             </a>
             <a href="#" className="block">
-              <img src="src/assets/appstore.png" alt="App Store" className="h-10"/>
+              <img src="src/assets/appstore.png" alt="App Store" className="h-10" />
             </a>
           </div>
         </div>
@@ -70,15 +73,15 @@ const Footer = () => {
             </li>
           </ul>
           <div className="mt-4">
-            <a href="#" className="text-blue-400 hover:underline">Узнать свой бонус</a>
+            <a href="https://t.me/texnomart_svoy_bonus_bot"><button className='flex items-center justify-center gap-2 p-4 bg-gray-800 text-white rounded-lg border-2 border-dashed border-gray-500 hover:bg-gray-700'>Узнать свой бонус</button></a>
           </div>
         </div>
       </div>
 
-      <hr className="border-t border-gray-700 my-8"/>
+      <hr className="border-t border-gray-700 my-8" />
 
       <div className="container mx-auto text-center text-sm px-4 space-y-2">
-        <a href="#" className="text-blue-400 hover:underline block">Адреса магазинов Тошкент</a>
+        <a href='https://www.google.com/maps/place/MARS+IT+school+yunusobod/@41.3669805,69.2837955,17z/data=!3m1!4b1!4m6!3m5!1s0x38ae8d2b7364ca3b:0x17ae9b1138235319!8m2!3d41.3669765!4d69.2863704!16s%2Fg%2F11l5x4lv1w?entry=ttu&g_ep=EgoyMDI0MDgyMS4wIKXMDSoASAFQAw%3D%3D' className="text-blue-400 hover:underline block">Адреса магазинов Тошкент</a>
         <p>2016-2024 ©technomart.uz. Все права защищены. Указанная стоимость товаров и условия их приобретения действительны по состоянию на текущую дату.</p>
       </div>
     </footer>

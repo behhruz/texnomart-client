@@ -6,17 +6,24 @@ import Footer from './components/footer';
 import Header from './components/Header';
 import FooterSection from './components/FooterSection';
 
+
+
 const App = () => {
     return (
-        <div>
-            <Header />
-            <Banner />
-            <Cattegory />
-            <About />
-            <FooterSection />
-            <Footer />
-        </div>
+        <>
+            <div>
+                <Header />
+                <Banner />
+                <Cattegory />
+                <About />
+                <FooterSection />
+                <Footer />
+            </div>
+        </>
+
     );
 };
 
 export default App;
+
+

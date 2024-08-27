@@ -5,16 +5,21 @@ import Cattegory from './components/Swipper';
 import Footer from './components/footer';
 import Header from './components/Header';
 import FooterSection from './components/FooterSection';
+import Providers from './context/Providers';
 
 const App = () => {
     return (
         <div>
-            <Header />
-            <Banner />
-            <Cattegory />
-            <About />
-            <FooterSection />
-            <Footer />
+
+            <Providers>
+                <Header />
+                <Banner />
+                <Cattegory />
+                <About />
+                <FooterSection />
+                <Footer />
+            </Providers>
+
         </div>
     );
 };

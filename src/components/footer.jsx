@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { DataContext } from '../context/Providers';
 
 const Footer = () => {
+
   return (
+
     <footer className="bg-gray-800 text-white py-8">
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 px-16">
         <div className="space-y-4">
@@ -9,10 +12,10 @@ const Footer = () => {
           <p className="text-2xl">+998 71 209 99 44</p>
           <div className="flex space-x-4">
             <a href="#" className="block">
-              <img src="src/assets/play.png" alt="Google Play" className="h-10"/>
+              <img src="src/assets/play.png" alt="Google Play" className="h-10" />
             </a>
             <a href="#" className="block">
-              <img src="src/assets/appstore.png" alt="App Store" className="h-10"/>
+              <img src="src/assets/appstore.png" alt="App Store" className="h-10" />
             </a>
           </div>
         </div>
@@ -75,7 +78,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <hr className="border-t border-gray-700 my-8"/>
+      <hr className="border-t border-gray-700 my-8" />
 
       <div className="container mx-auto text-center text-sm px-4 space-y-2">
         <a href="#" className="text-blue-400 hover:underline block">Адреса магазинов Тошкент</a>

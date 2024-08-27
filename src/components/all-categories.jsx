@@ -32,10 +32,14 @@ const AllCategories = ({ addToCart }) => {
 
   const handleFilter = () => {
     return products.filter((product) => {
-      const price = parseFloat(product.price.replace(/\s/g, ''));
+      // Safely parse and default values
+      const price = parseFloat((product.price || '0').replace(/\s/g, ''));
+      const min = parseFloat(minPrice || '0');
+      const max = parseFloat(maxPrice || Infinity);
+
       return (
-        (!minPrice || price >= parseFloat(minPrice)) &&
-        (!maxPrice || price <= parseFloat(maxPrice))
+        price >= min &&
+        price <= max
       );
     });
   };

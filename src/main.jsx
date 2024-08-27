@@ -28,6 +28,9 @@ import Household from "./components/household";
 import Autogoods from "./components/auto-goods";
 import Audio from "./components/audio";
 import Beautyhealth from "./components/beauty-health";
+import LoginPage from "./components/Login";
+import Card from "./components/Card";
+
 
 const router = createBrowserRouter([
     {
@@ -127,6 +130,12 @@ const router = createBrowserRouter([
         path: "/climate",
         element: <Climate/>,
     },
+    {
+        path : '/ddd',
+        element: <Card/>
+    }
+
+    
 ]);
 
 createRoot(document.getElementById("root")).render(

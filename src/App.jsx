@@ -1,25 +1,22 @@
-import React from 'react';
-import Banner from './components/Banner';
-import About from './components/About';
-import Cattegory from './components/Swipper';
-import Footer from './components/footer';
-import Header from './components/Header';
-import FooterSection from './components/FooterSection';
-import Providers from './context/Providers';
+import React from 'react'
+import Header from './components/header'
+import Banner from './components/Banner'
+import About from './components/About'
+import Cattegory from './components/Swipper'
+import Product from './components/Product'
+import FooterSection from './components/footerSection'
+import Footer from './components/footer'
 
 const App = () => {
   return (
     <div>
-
-      <Providers>
-        <Header />
-        <Banner />
-        <Cattegory />
-        <About />
-        <FooterSection />
-        <Footer />
-      </Providers>
-
+      <Header />
+      <Banner />
+      <Cattegory />
+      <Product />
+      <About />
+      <FooterSection />
+      <Footer />
     </div>
   );
 };

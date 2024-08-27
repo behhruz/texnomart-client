@@ -91,7 +91,6 @@ const router = createBrowserRouter([
         path: "/tvs",
         element: <Tvs />,
     },
-    
     {
         path: "/home-tech",
         element: <Hometech />,

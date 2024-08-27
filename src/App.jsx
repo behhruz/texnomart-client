@@ -8,20 +8,20 @@ import FooterSection from './components/FooterSection';
 import Providers from './context/Providers';
 
 const App = () => {
-    return (
-        <div>
+  return (
+    <div>
 
-            <Providers>
-                <Header />
-                <Banner />
-                <Cattegory />
-                <About />
-                <FooterSection />
-                <Footer />
-            </Providers>
+      <Providers>
+        <Header />
+        <Banner />
+        <Cattegory />
+        <About />
+        <FooterSection />
+        <Footer />
+      </Providers>
 
-        </div>
-    );
+    </div>
+  );
 };
 
 export default App;

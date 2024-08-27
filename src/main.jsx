@@ -18,6 +18,7 @@ import Stores from "./components/Stores";
 import Legal from "./components/Legal";
 import PaymentMethods from "./components/PaymentMethods";       
 import LoginPage from "./components/LoginPage";
+import Card from "./components/Card";
 
 
 const router = createBrowserRouter([
@@ -77,6 +78,12 @@ const router = createBrowserRouter([
         path: "/login",
         element: <LoginPage />,
     },
+    {
+        path : '/ddd',
+        element: <Card/>
+    }
+
+    
 ]);
 // Render the application and attach the router
 createRoot(document.getElementById("root")).render(

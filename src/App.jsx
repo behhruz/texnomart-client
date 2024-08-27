@@ -4,6 +4,8 @@ import Banner from './components/Banner'
 import About from './components/About'
 import Cattegory from './components/Swipper'
 import Product from './components/Product'
+import FooterSection from './components/footerSection'
+import Footer from './components/footer'
 
 const App = () => {
   return (
@@ -11,9 +13,10 @@ const App = () => {
       <Header />
       <Banner />
       <Cattegory />
-      <Product/>
+      <Product />
       <About />
-
+      <FooterSection />
+      <Footer />
     </div>
   )
 }

@@ -48,8 +48,8 @@ const Climate = () => {
               <h3 className="product-title">{product.title}</h3>
               <p className="product-cost">
                 <span>{product.price}</span>
-                {product.oldCost && (
-                  <span className="old-price"> {product.oldCost}</span>
+                {product.oldprice && (
+                  <span className="old-price"> {product.oldprice}</span>
                 )}
               </p>
               <p className="product-cat">{product.cattegory}</p>

@@ -96,8 +96,8 @@ const AllCategories = ({ addToCart }) => {
                 </p>
                 <p className="product-cost">
                   <span className="current-price">{product.price} сўм</span>
-                  {product.oldCost && (
-                    <span className="old-price"><del>{product.oldCost} сўм</del></span>
+                  {product.oldprice && (
+                    <span className="old-price"><del>{product.oldprice} сўм</del></span>
                   )}
                 </p>
                 <button onClick={() => addToCart(product)} className="add-to-cart-btn">

@@ -1,0 +1,103 @@
+.products-container {
+    padding: 20px;
+  }
+  
+  .products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  .product-card {
+    position: relative;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: box-shadow 0.3s ease;
+    text-align: center;
+  }
+  
+  .product-card:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .product-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .timer-badge {
+    background-color: #00c851;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+  
+  .favorite-icon, .compare-icon {
+    font-size: 20px;
+    color: #999;
+    cursor: pointer;
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .quick-view-btn {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 15px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+    width: 100%;
+  }
+  
+  .product-title {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  .product-monthly-payment {
+    font-size: 14px;
+    color: #999;
+    margin-bottom: 5px;
+  }
+  
+  .product-discount {
+    font-size: 14px;
+    color: #2bbbad;
+    margin-bottom: 10px;
+  }
+  
+  .product-cost {
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .current-price {
+    color: #333;
+    font-weight: bold;
+  }
+  
+  .old-price {
+    font-size: 14px;
+    color: #b0b0b0;
+    text-decoration: line-through;
+    margin-left: 10px;
+  }
+  

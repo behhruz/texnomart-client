@@ -1,12 +1,12 @@
-import React from 'react'
-import Header from './components/header'
+import React from 'react';
+import Header from './components/Header'; // Adjust the path if necessary
 
 const App = () => {
   return (
     <div>
-      <Header/>
+      <Header />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

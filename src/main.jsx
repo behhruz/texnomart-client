@@ -29,6 +29,7 @@ import Autogoods from "./components/auto-goods";
 import Audio from "./components/audio";
 import Beautyhealth from "./components/beauty-health";
 
+
 const router = createBrowserRouter([
     {
         path: "/",
@@ -91,7 +92,6 @@ const router = createBrowserRouter([
         path: "/tvs",
         element: <Tvs />,
     },
-    
     {
         path: "/home-tech",
         element: <Hometech />,

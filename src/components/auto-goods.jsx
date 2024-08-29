@@ -16,8 +16,7 @@ const Autogoods = () => {
         return response.json();
       })
       .then(data => {
-        // Filter products based on the category
-        const filteredProducts = data.filter(product => product.cattegory === "Autogoods");
+        const filteredProducts = data.filter(product => product.category === "Avtomobil uchun maxsulotlar");
         setProducts(filteredProducts);
         setLoading(false);
       })
@@ -52,14 +51,12 @@ const Autogoods = () => {
                   <span className="old-price"> {product.oldCost}</span>
                 )}
               </p>
-              <p className="product-cat">{product.cattegory}</p>
+              <p className="product-cat">{product.category}</p>
               <p className="product-brand">{product.brand}</p>
               <p className="product-sell-status">
                 {product.isSell ? 'In Stock' : 'Out of Stock'}
               </p>
-              {product.isGift && (
-                <div className="giftbox-badge">Giftbox в подарок</div>
-              )}
+              <div className="giftbox-badge">Giftbox в подарок</div>
               <p className="product-cost-month">
                 {product.costMonth1}
                 {product.costMonth2 && (
@@ -69,7 +66,7 @@ const Autogoods = () => {
             </div>
           ))
         ) : (
-          <p>No TVs available.</p>
+          <p>No Autogoods available.</p>
         )}
       </div>
     </div>

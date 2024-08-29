@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './hometech.css'; // Import the CSS file
+import './smartphones.css'; // Import the CSS file
 
 const Hometech = () => {
   const [products, setProducts] = useState([]);

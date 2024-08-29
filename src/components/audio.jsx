@@ -17,7 +17,7 @@ const Audio = () => {
       })
       .then(data => {
         // Filter products based on the category
-        const filteredProducts = data.filter(product => product.cattegory === "HiFi");
+        const filteredProducts = data.filter(product => product.cattegory === "Audiotexnika va Hi-fi");
         setProducts(filteredProducts);
         setLoading(false);
       })
@@ -48,8 +48,8 @@ const Audio = () => {
               <h3 className="product-title">{product.title}</h3>
               <p className="product-cost">
                 <span>{product.price}</span>
-                {product.oldCost && (
-                  <span className="old-price"> {product.oldCost}</span>
+                {product.oldprice && (
+                  <span className="old-price"> {product.oldprice}</span>
                 )}
               </p>
               <p className="product-cat">{product.cattegory}</p>

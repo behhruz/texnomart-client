@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './hometech.css'; // Import the CSS file
+import './smartphones.css'; // Import the CSS file
 
 const Officetech = () => {
   const [products, setProducts] = useState([]);
@@ -17,7 +17,7 @@ const Officetech = () => {
       })
       .then(data => {
         // Filter products based on the category
-        const filteredProducts = data.filter(product => product.cattegory === "Officetech");
+        const filteredProducts = data.filter(product => product.cattegory === "Ofis jixozlari");
         setProducts(filteredProducts);
         setLoading(false);
       })

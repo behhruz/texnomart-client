@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import './climate.css'; // Import the CSS file
+import './smartphones.css'; // Import the CSS file
 
 const Climate = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const category = 'Climate'; // Desired category name
+  const category = 'Conditioners'; // Desired category name
 
   useEffect(() => {
     fetch(`http://localhost:5000/Products`)
@@ -17,7 +17,7 @@ const Climate = () => {
       })
       .then(data => {
         // Filter products based on the category
-        const filteredProducts = data.filter(product => product.cattegory === "Climate");
+        const filteredProducts = data.filter(product => product.cattegory === "Conditsioner");
         setProducts(filteredProducts);
         setLoading(false);
       })
@@ -48,8 +48,8 @@ const Climate = () => {
               <h3 className="product-title">{product.title}</h3>
               <p className="product-cost">
                 <span>{product.price}</span>
-                {product.oldCost && (
-                  <span className="old-price"> {product.oldCost}</span>
+                {product.oldprice && (
+                  <span className="old-price"> {product.oldprice}</span>
                 )}
               </p>
               <p className="product-cat">{product.cattegory}</p>

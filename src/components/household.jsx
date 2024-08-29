@@ -17,7 +17,7 @@ const Household = () => {
       })
       .then(data => {
         // Filter products based on the category
-        const filteredProducts = data.filter(product => product.cattegory === "Kitchentech");
+        const filteredProducts = data.filter(product => product.cattegory === "Oshxona uchun jixozlar");
         setProducts(filteredProducts);
         setLoading(false);
       })

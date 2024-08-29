@@ -14,10 +14,8 @@ import Vacuumcleaners from "./components/vacuum-cleaners";
 import AllCategories from "./components/all-categories";
 import Favorites from "./components/Favorites";
 import Cart from "./components/Cart";
-import Stores from "./components/Stores";
 import Legal from "./components/Legal";
 import PaymentMethods from "./components/PaymentMethods";       
-import Login from "./components/Login";
 import Computers from "./components/computers";
 import Tvs from "./components/tvs";
 import Climate from "./components/climate";
@@ -28,6 +26,9 @@ import Household from "./components/household";
 import Autogoods from "./components/auto-goods";
 import Audio from "./components/audio";
 import Beautyhealth from "./components/beauty-health";
+import LoginPage from "./components/Login";
+import Card from "./components/Card";
+
 
 
 const router = createBrowserRouter([
@@ -72,10 +73,6 @@ const router = createBrowserRouter([
         element: <Cart />,
     },
     {
-        path: "/stores",
-        element: <Stores />,
-    },
-    {
         path: "/legal",
         element: <Legal />,
     },
@@ -85,7 +82,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/login",
-        element: <Login />,
+        element: <LoginPage />,
     },
     
     {
@@ -128,6 +125,12 @@ const router = createBrowserRouter([
         path: "/climate",
         element: <Climate/>,
     },
+    {
+        path : '/ddd',
+        element: <Card/>
+    }
+
+    
 ]);
 
 createRoot(document.getElementById("root")).render(

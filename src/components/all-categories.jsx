@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './hometech.css'; // Ensure the CSS file is imported correctly
-import { Slider } from "@nextui-org/react";
+import './smartphones.css';
+import { Slider } from "@nextui-org/slider"
+
 
 const AllCategories = ({ addToCart }) => {
   const [products, setProducts] = useState([]);
@@ -33,18 +34,20 @@ const AllCategories = ({ addToCart }) => {
 
   const handleFilter = () => {
     return products.filter((product) => {
-      const price = parseFloat(product.price.replace(/\s/g, ''));
+      // Safely parse and default values
+      const price = parseFloat((product.price || '0').replace(/\s/g, ''));
+      const min = parseFloat(minPrice || '0');
+      const max = parseFloat(maxPrice || Infinity);
+
       return (
-        (!minPrice || price >= parseFloat(minPrice)) &&
-        (!maxPrice || price <= parseFloat(maxPrice))
+        price >= min &&
+        price <= max
       );
     });
   };
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error fetching data: {error.message}</p>;
-
-  const filteredProducts = handleFilter();
 
   return (
     <div className="products-container">
@@ -66,25 +69,22 @@ const AllCategories = ({ addToCart }) => {
             onChange={(e) => setMaxPrice(e.target.value)}
             className="filter-input"
           />
-
           <Slider
-            aria-label="Price Range"
+            label="Price Range"
             step={50}
             minValue={0}
-            maxValue={Infinity}
-            defaultValue={[minPrice || 100, maxPrice || 500]}
-            onChange={(values) => {
-              setMinPrice(values[0]);
-              setMaxPrice(values[1]);
-            }}
+            maxValue={1000}
+            defaultValue={[100, 500]}
+            formatOptions={{ style: "currency", currency: "UZS" }}
             className="max-w-md"
           />
         </div>
 
+
         {/* Products Grid */}
         <div className="products-grid">
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map((product, index) => (
+          {handleFilter().length > 0 ? (
+            handleFilter().map((product, index) => (
               <div key={index} className="product-card">
                 <div className="product-card-header">
                   {product.timer && (
@@ -112,8 +112,8 @@ const AllCategories = ({ addToCart }) => {
                 </p>
                 <p className="product-cost">
                   <span className="current-price">{product.price} сўм</span>
-                  {product.oldCost && (
-                    <span className="old-price"><del>{product.oldCost} сўм</del></span>
+                  {product.oldprice && (
+                    <span className="old-price"><del>{product.oldprice} сўм</del></span>
                   )}
                 </p>
                 <button onClick={() => addToCart(product)} className="add-to-cart-btn">

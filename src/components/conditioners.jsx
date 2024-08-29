@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './climate.css'; // Import the CSS file
+import './smartphones.css'; // Import the CSS file
 
-const Climate = () => {
+const Conditioners = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -17,7 +17,7 @@ const Climate = () => {
       })
       .then(data => {
         // Filter products based on the category
-        const filteredProducts = data.filter(product => product.cattegory === "Climate");
+        const filteredProducts = data.filter(product => product.cattegory === "Conditsioner");
         setProducts(filteredProducts);
         setLoading(false);
       })
@@ -69,11 +69,11 @@ const Climate = () => {
             </div>
           ))
         ) : (
-          <p>No Conditionres available.</p>
+          <p>No TVs available.</p>
         )}
       </div>
     </div>
   );
 };
 
-export default Climate;
+export default Conditioners;

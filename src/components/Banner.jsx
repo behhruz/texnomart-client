@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 const Banner = () => {
     const [currentSlide, setCurrentSlide] = useState(1);
     const totalSlides = 5; // Количество слайдов
-    const [categories, setCategories] = useState([]);
+    const [categoryes, setCategories] = useState([]);
     const [error, setError] = useState(null);
 
     // Функция для переключения слайдов

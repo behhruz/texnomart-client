@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './smartphones.css';
-import { Slider } from "@nextui-org/slider"
-
+import { Slider } from '@nextui-org/slider';
 
 const AllCategories = ({ addToCart }) => {
   const [products, setProducts] = useState([]);
@@ -33,16 +32,13 @@ const AllCategories = ({ addToCart }) => {
   }, []);
 
   const handleFilter = () => {
-    return products.filter((product) => {
+    return products.filter(product => {
       // Safely parse and default values
       const price = parseFloat((product.price || '0').replace(/\s/g, ''));
       const min = parseFloat(minPrice || '0');
       const max = parseFloat(maxPrice || Infinity);
 
-      return (
-        price >= min &&
-        price <= max
-      );
+      return price >= min && price <= max;
     });
   };
 
@@ -52,7 +48,7 @@ const AllCategories = ({ addToCart }) => {
   return (
     <div className="products-container">
       <h2>All Products</h2>
-      <div className='products-wrapper'>
+      <div className="products-wrapper">
         {/* Filter Inputs */}
         <div className="filter-container">
           <input
@@ -75,11 +71,10 @@ const AllCategories = ({ addToCart }) => {
             minValue={0}
             maxValue={1000}
             defaultValue={[100, 500]}
-            formatOptions={{ style: "currency", currency: "UZS" }}
+            formatOptions={{ style: 'currency', currency: 'UZS' }}
             className="max-w-md"
           />
         </div>
-
 
         {/* Products Grid */}
         <div className="products-grid">
@@ -113,7 +108,9 @@ const AllCategories = ({ addToCart }) => {
                 <p className="product-cost">
                   <span className="current-price">{product.price} сўм</span>
                   {product.oldprice && (
-                    <span className="old-price"><del>{product.oldprice} сўм</del></span>
+                    <span className="old-price">
+                      <del>{product.oldprice} сўм</del>
+                    </span>
                   )}
                 </p>
                 <button onClick={() => addToCart(product)} className="add-to-cart-btn">
@@ -131,3 +128,4 @@ const AllCategories = ({ addToCart }) => {
 };
 
 export default AllCategories;
+``

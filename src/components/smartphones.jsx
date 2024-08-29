@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './smartphones.css'; // Import the CSS file
+import './smartphones.css';
 
 const Smartphones = () => {
   const [products, setProducts] = useState([]);
@@ -16,7 +16,6 @@ const Smartphones = () => {
         return response.json();
       })
       .then(data => {
-        // Filter products based on the category
         const filteredProducts = data.filter(product => product.cattegory === "Telefon");
         setProducts(filteredProducts);
         setLoading(false);
@@ -41,7 +40,7 @@ const Smartphones = () => {
                 <div className="discount-badge">{product.discount}</div>
               )}
               <img
-                src={product.url || '/default-image.png'} // Default image fallback
+                src={product.url || '/default-image.png'}
                 alt={product.title}
                 className="product-image"
               />

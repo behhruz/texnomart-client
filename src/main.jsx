@@ -58,6 +58,10 @@ import Braun from './Brands/Braun';
 import Yandex from './Brands/Yandex';
 import Kenwood from './Brands/Kenwood';
 import Philips from './Brands/Philips';
+import FreeDeliver from './FooterSectonPages/FreeDeliver';
+import ProductWarranty from './FooterSectonPages/ProductWarranty';
+import BonusSystem from './FooterSectonPages/BonusSystem';
+import Help from './FooterSectonPages/Help';
 ;
 
 const router = createBrowserRouter([
@@ -277,7 +281,22 @@ const router = createBrowserRouter([
         path: "/philips",
         element: <Philips />,
     },
-
+    {
+        path: "/free-delivery",
+        element: <FreeDeliver />
+    },
+    {
+        path: "/product-warranty",
+        element: <ProductWarranty />
+    },
+    {
+        path: "/bonus-system",
+        element: <BonusSystem />
+    },
+    {
+        path: "/help",
+        element: <Help />
+    },
 ]);
 
 ReactDOM.render(

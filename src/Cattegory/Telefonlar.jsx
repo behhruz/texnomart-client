@@ -1,48 +1,69 @@
 import React, { useState, useEffect } from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const Telefonlar = () => {
-  const [product, setProduct] = useState([]);
+  const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchCategories = async () => {
+    // Productsni olish
+    const fetchProducts = async () => {
       try {
         const response = await fetch('http://localhost:5000/Products/');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        setProduct(data);
+        console.log("Fetched Products:", data); // Ma'lumotlarni tekshirish uchun
+        setProducts(data);
       } catch (error) {
         setError(error.message);
       }
     };
 
-    fetchCategories();
+    fetchProducts();
   }, []);
 
-  if (error) {
-    return <div>Error: {error}</div>;
-  }
+  // Xiaomi mahsulotlarini filtrlash
+  const xiaomiProducts = products.filter(product => product.cattegory === 'Telefon');
+  console.log("Filtered Xiaomi Products:", xiaomiProducts); // Filtrlangan mahsulotlarni konsolda tekshirish
 
   return (
-    <div className='mx-10 my-5'>
-      {product.map((v, i) => (
-        <div key={i} className="bg-white rounded-lg shadow-lg p-4 max-w-xs">
-          <div className="relative">
-            <img src={v.img1} alt={v.title1} className="w-full h-56 object-contain mb-4" />
-            <div className="absolute top-2 left-2 bg-green-500 text-white text-xs rounded px-2 py-1">
-              0•0•12
+    <>
+      <Header />
+      <div className="flex gap-6 flex-wrap justify-center items-center my-10">
+        {error && <p>{error}</p>}
+        {xiaomiProducts.length > 0 ? (
+          xiaomiProducts.map((product) => (
+            <div key={product.id} className="bg-white rounded-lg p-4 w-[20%] hover:shadow-lg">
+              <div className="relative">
+                <img className="w-full h-[250px] object-contain" src={product.url} alt={product.title} />
+              </div>
+              <div className="mt-4">
+                <p className="text-gray-600 font-semibold text-[17px]">{product.title}</p>
+              </div>
+              <div className="flex flex-col">
+                <div className='w-[100%] bg-slate-200 rounded-2xl flex justify-center items-center my-2'>
+                  <p className="text-green-600 font-bold text-[12px]">{product.costMonth1}</p>
+                </div>
+                <div className='w-[100%] bg-slate-200 rounded-2xl flex justify-center items-center'>
+                  <p className="text-green-600 font-bold text-[13px]">{product.costMonth2}</p>
+                </div>
+              </div>
+              <div className="flex flex-col mt-2">
+                <del className="text-gray-400">{product.oldprice}</del>
+                <p className="text-xl font-bold text-gray-900">{product.price}</p>
+              </div>
+              <p className="text-sm text-green-600">{/* Add discount information here */}</p>
             </div>
-          </div>
-          <h2 className="text-lg font-semibold mb-2">{v.title1}</h2>
-          <p className="text-gray-500 mb-1">{v.costMonth1}</p>
-          <p className="text-gray-500 mb-1">{v.costMonth2}</p>
-          <p className="text-red-600 line-through mb-1">{v.oldCost}</p>
-          <p className="text-green-600 text-xl font-bold">{v.cost}</p>
-        </div>
-      ))}
-    </div>
+          ))
+        ) : (
+          <p>Telfon mahsulotlari topilmadi.</p>
+        )}
+      </div>
+      <Footer />
+    </>
   );
 };
 

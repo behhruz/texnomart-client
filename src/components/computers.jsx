@@ -1,10 +1,13 @@
+// Computers.js
 import React, { useState, useEffect } from 'react';
-import './smartphones.css'; // Import the CSS file
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import './smartphones.css'; // Use the same CSS file if needed
 
 const Computers = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate(); // Initialize useNavigate hook
   const category = 'Computers'; // Desired category name
 
   useEffect(() => {
@@ -30,13 +33,18 @@ const Computers = () => {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error fetching data: {error.message}</p>;
 
+  const handleProductClick = (id) => {
+    // Navigate to the product details page by product id
+    navigate(`/product/${id}`);
+  };
+
   return (
     <div className="products-container">
       <h2>{category}</h2>
       <div className="products-grid">
         {products.length > 0 ? (
           products.map((product, index) => (
-            <div key={index} className="product-card">
+            <div key={index} className="product-card" onClick={() => handleProductClick(product.id)}>
               {product.discount && (
                 <div className="discount-badge">{product.discount}</div>
               )}
@@ -69,7 +77,7 @@ const Computers = () => {
             </div>
           ))
         ) : (
-          <p>No Conditionres available.</p>
+          <p>No Computers available.</p>
         )}
       </div>
     </div>

@@ -1,57 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import './smartphones.css'; // Ensure the CSS file is imported correctly
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import useFetch from '../Hooks/useFetch';
+import './smartphones.css';
 
 const AllCategories = ({ addToCart }) => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const { data: products, loading, error } = useFetch('http://localhost:5000/Products');
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
+  const navigate = useNavigate(); // Initialize useNavigate hook
 
-  useEffect(() => {
-    fetch('http://localhost:5000/Products') // Fetch products from your backend
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        if (Array.isArray(data)) {
-          setProducts(data);
-        } else {
-          throw new Error('Unexpected data format');
-        }
-        setLoading(false);
-      })
-      .catch(error => {
-        setError(error);
-        setLoading(false);
-      });
-  }, []);
+  const handleProductClick = (id) => {
+    navigate(`/product/${id}`); // Navigate to the product details page by product id
+  };
 
   const handleFilter = () => {
-    return products.filter((product) => {
-      // Safely parse and default values
-      const price = parseFloat((product.price || '0').replace(/\s/g, ''));
-      const min = parseFloat(minPrice || '0');
-      const max = parseFloat(maxPrice || Infinity);
+    const min = parseFloat(minPrice) || 0;
+    const max = parseFloat(maxPrice) || Infinity;
 
-      return (
-        price >= min &&
-        price <= max
-      );
+    return products?.filter((product) => {
+      const price = parseFloat((product.price || '0').replace(/\s/g, ''));
+      return price >= min && price <= max;
     });
   };
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error fetching data: {error.message}</p>;
+  if (error) return <p>Error fetching data: {error}</p>;
+
+  const filteredProducts = handleFilter();
 
   return (
     <div className="products-container">
       <h2>All Products</h2>
-      <div className='products-wrapper'>
-        {/* Filter Inputs */}
+      <div className="products-wrapper">
         <div className="filter-container">
           <input
             type="number"
@@ -69,21 +49,14 @@ const AllCategories = ({ addToCart }) => {
           />
         </div>
 
-        {/* Products Grid */}
         <div className="products-grid">
-          {handleFilter().length > 0 ? (
-            handleFilter().map((product, index) => (
-              <div key={index} className="product-card">
-                <div className="product-card-header">
-                  {product.timer && (
-                    <div className="timer-badge">{product.timer}</div>
-                  )}
-                  {product.favorite && (
-                    <div className="favorite-icon">❤️</div>
-                  )}
-                  {product.compare && (
-                    <div className="compare-icon">🔄</div>
-                  )}
+          {filteredProducts?.length > 0 ? (
+            filteredProducts.map((product) => (
+              <div key={product.id} className="product-card">
+                <div className="product-card-header" onClick={() => handleProductClick(product.id)}>
+                  {product.timer && <div className="timer-badge">{product.timer}</div>}
+                  {product.favorite && <div className="favorite-icon">❤️</div>}
+                  {product.compare && <div className="compare-icon">🔄</div>}
                 </div>
                 <img
                   src={product.url || '/default-image.png'}
@@ -101,7 +74,9 @@ const AllCategories = ({ addToCart }) => {
                 <p className="product-cost">
                   <span className="current-price">{product.price} сўм</span>
                   {product.oldprice && (
-                    <span className="old-price"><del>{product.oldprice} сўм</del></span>
+                    <span className="old-price">
+                      <del>{product.oldprice} сўм</del>
+                    </span>
                   )}
                 </p>
                 <button onClick={() => addToCart(product)} className="add-to-cart-btn">

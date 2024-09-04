@@ -1,63 +1,66 @@
 import React, { useState, useEffect } from 'react';
-import './smartphones.css'; // Import the CSS file
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import './Card.css';
 
-const Climate = () => {
+const B507 = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const category = 'Conditioners'; // Desired category name
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const category = 'Samsung'; 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/Products`)
-      .then(response => {
+    const fetchProducts = async () => {
+      try {
+        const response = await fetch(`http://localhost:5000/Products`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        return response.json();
-      })
-      .then(data => {
-        // Filter products based on the category
-        const filteredProducts = data.filter(product => product.cattegory === "Conditsioner");
-        setProducts(filteredProducts);
+        const data = await response.json();
+        console.log('Fetched data:', data);
+        if (Array.isArray(data)) {
+          const filteredProducts = data.filter(product => product.brand === category);
+          setProducts(filteredProducts);
+        } else {
+          throw new Error('Unexpected data format');
+        }
+      } catch (err) {
+        console.error('Error fetching data:', err);
+        setError(err);
+      } finally {
         setLoading(false);
-      })
-      .catch(error => {
-        setError(error);
-        setLoading(false);
-      });
+      }
+    };
+
+    fetchProducts();
   }, [category]);
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error fetching data: {error.message}</p>;
-  const handleProductClick = (id) => {
-    navigate(`/product/${id}`); // Navigate to the product details page by product id
-  };
+
   return (
     <div className="products-container">
       <h2>{category}</h2>
       <div className="products-grid">
         {products.length > 0 ? (
-          products.map((product, index) => (
-            <div key={index} className="product-card" onClick={() => handleProductClick(product.id)} >
+          products.map((product) => (
+            <div key={product.id || product.title} className="product-card">
               {product.discount && (
                 <div className="discount-badge">{product.discount}</div>
               )}
               <img
-                src={product.url || '/default-image.png'} // Default image fallback
-                alt={product.title}
+                src={product.url || '/default-image.png'}
+                alt={product.title || 'No Title'}
                 className="product-image"
               />
-              <h3 className="product-title">{product.title}</h3>
-              <p className="product-cost">
-                <span>{product.price}</span>
+              <button className="quick-view-btn">Быстрый просмотр</button>
+              <h3 className="product-title">{product.title || 'No Title'}</h3>
+              <div className="price-container">
+                <span className="current-price">{product.price || 'N/A'}</span>
                 {product.oldprice && (
                   <span className="old-price"> {product.oldprice}</span>
                 )}
-              </p>
-              <p className="product-cat">{product.cattegory}</p>
-              <p className="product-brand">{product.brand}</p>
+              </div>
+              <p className="product-cat">{product.category || 'No Category'}</p>
+              <p className="product-brand">{product.brand || 'No Brand'}</p>
               <p className="product-sell-status">
                 {product.isSell ? 'In Stock' : 'Out of Stock'}
               </p>
@@ -65,7 +68,7 @@ const Climate = () => {
                 <div className="giftbox-badge">Giftbox в подарок</div>
               )}
               <p className="product-cost-month">
-                {product.costMonth1}
+                {product.costMonth1 || 'N/A'}
                 {product.costMonth2 && (
                   <span className="cost-month-2"> {product.costMonth2}</span>
                 )}
@@ -73,11 +76,11 @@ const Climate = () => {
             </div>
           ))
         ) : (
-          <p>No TVs available.</p>
+          <p>No Smartphones available.</p>
         )}
       </div>
     </div>
   );
 };
 
-export default Climate;
+export default B507;

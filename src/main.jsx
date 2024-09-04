@@ -28,9 +28,25 @@ import Household from "./components/household";
 import Autogoods from "./components/auto-goods";
 import Audio from "./components/audio";
 import Beautyhealth from "./components/beauty-health";
-import LoginPage from "./components/Login";
 import Card from "./components/Card";
-
+import B507 from "./components/b507";
+import DCC3 from './components/dcc3'; 
+import Xiaomi from './components/93d3'
+import Huawei from "./components/8fde";
+import Honor from './components/Honor'
+import Iphone from "./components/f67c";
+import Vivo from "./components/f2b6";
+import Infinix from "./components/a928";
+import Oppo from "./components/53cd";
+import Hansa from "./components/9a1c";
+import Hisense from "./components/78ea";
+import Tefal from "./components/d60e";
+import DeLonghi from "./components/68bb";
+import Moulinex from "./components/270c";
+import Rowenta from "./components/7b65";
+import Karcher from "./components/dd17";
+import Krups from "./components/3cc1";
+import ProductDetail from "./components/ProductDetail"; // Import your ProductDetail component
 
 const router = createBrowserRouter([
     {
@@ -89,7 +105,6 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
     },
-    
     {
         path: "/tvs",
         element: <Tvs />,
@@ -131,11 +146,81 @@ const router = createBrowserRouter([
         element: <Climate/>,
     },
     {
-        path : '/ddd',
+        path: '/ddd',
         element: <Card/>
+    },
+    {
+        path: '/b507',
+        element: <B507/>
+    },
+    {
+        path: '/dcc3',
+        element: <DCC3/>
+    },
+    {
+        path: "/93d3",
+        element: <Xiaomi/>,
+    },
+    {
+        path: "/8fde",
+        element: <Huawei/>,
+    },
+    {
+        path: "/5d15",
+        element: <Honor/>,
+    },
+    {
+        path: "/f67c",
+        element: <Iphone/>,
+    },
+    {
+        path: "/f2b6",
+        element: <Vivo/>,
+    },
+    {
+        path: "/a928",
+        element: <Infinix/>,
+    },
+    {
+        path: "/53cd",
+        element: <Oppo/>,
+    },
+    {
+        path: "/9a1c",
+        element: <Hansa/>,
+    },
+    {
+        path: "/78ea",
+        element: <Hisense/>,
+    },
+    {
+        path: "/d60e",
+        element: <Tefal/>,
+    },
+    {
+        path: "/68bb",
+        element: <DeLonghi/>,
+    },
+    {
+        path: "/270c",
+        element: <Moulinex/>,
+    },
+    {
+        path: "/7b65",
+        element: <Rowenta/>,
+    },
+    {
+        path: "/dd17",
+        element: <Karcher/>,
+    },
+    {
+        path: "/3cc1",
+        element: <Krups/>,
+    },
+    {
+        path: "/product/:id", // Dynamic route
+        element: <ProductDetail />, // Component to render
     }
-
-    
 ]);
 
 createRoot(document.getElementById("root")).render(

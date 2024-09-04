@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
-import './smartphones.css';
+import './Card.css'; // Import the CSS file
 
-const Smartphones = () => {
+const Xiaomi = () => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigate = useNavigate(); // Initialize useNavigate hook
-  const category = 'Telefon'; // Desired category name
 
   useEffect(() => {
-    fetch(`http://localhost:5000/Products`)
+    fetch('http://localhost:5000/Products')
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok');
@@ -18,32 +15,33 @@ const Smartphones = () => {
         return response.json();
       })
       .then(data => {
-        // Filter products based on the category
-        const filteredProducts = data.filter(product => product.cattegory === category);
-        setProducts(filteredProducts);
+        console.log('API Response:', data); // Log the full API response
+        if (Array.isArray(data)) {
+          const filteredProducts = data.filter(product => product.brand && product.brand.toLowerCase() === "xiaomi".toLowerCase());
+          console.log('Filtered Products:', filteredProducts); // Log filtered products
+          setProducts(filteredProducts);
+        } else {
+          throw new Error('Unexpected data format');
+        }
         setLoading(false);
       })
       .catch(error => {
+        console.error('Fetch error:', error); // Log error details
         setError(error);
         setLoading(false);
       });
-  }, [category]);
+  }, []); // Empty dependency array means this useEffect runs once on mount
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error fetching data: {error.message}</p>;
 
-  const handleProductClick = (id) => {
-    // Navigate to the product details page by product id
-    navigate(`/product/${id}`);
-  };
-
   return (
     <div className="products-container">
-      <h2>{category}</h2>
+      <h2>Xiaomi</h2>
       <div className="products-grid">
         {products.length > 0 ? (
-          products.map((product, index) => (
-            <div key={index} className="product-card" onClick={() => handleProductClick(product.id)}>
+          products.map(product => (
+            <div key={product.id || product.title} className="product-card">
               {product.discount && (
                 <div className="discount-badge">{product.discount}</div>
               )}
@@ -52,14 +50,12 @@ const Smartphones = () => {
                 alt={product.title}
                 className="product-image"
               />
-              <button className="quick-view-btn">
-                Посмотреть
-              </button>
+              <button className="quick-view-btn">Быстрый просмотр</button>
               <h3 className="product-title">{product.title}</h3>
               <p className="product-cost">
                 <span className="current-price">{product.price}</span>
-                {product.oldCost && (
-                  <span className="old-price"> {product.oldCost}</span>
+                {product.oldprice && (
+                  <span className="old-price"> {product.oldprice}</span>
                 )}
               </p>
               <p className="product-cat">{product.category}</p>
@@ -79,11 +75,11 @@ const Smartphones = () => {
             </div>
           ))
         ) : (
-          <p>No Smartphones available.</p>
+          <p>No Xiaomi products available.</p>
         )}
       </div>
     </div>
   );
 };
 
-export default Smartphones;
+export default Xiaomi;  

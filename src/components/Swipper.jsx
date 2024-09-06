@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import Help from '../FooterSectonPages/Help';
 
 const Cattegory = () => {
     const [categories, setCategories] = useState([]);
@@ -43,7 +44,7 @@ const Cattegory = () => {
     }, []);
 
     if (error) {
-        return <div>Error: {error}</div>;
+        return <div><Help /></div>;
     }
 
     return (

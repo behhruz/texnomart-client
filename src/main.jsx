@@ -62,7 +62,23 @@ import FreeDeliver from './FooterSectonPages/FreeDeliver';
 import ProductWarranty from './FooterSectonPages/ProductWarranty';
 import BonusSystem from './FooterSectonPages/BonusSystem';
 import Help from './FooterSectonPages/Help';
-;
+import AllCattegores from './AllCategores/AllCattegores';
+import Smartfonvagadjetlar from './AllCategores/Smartfonvagadjetlar';
+import Kompyutertexnikasi from './AllCategores/Kompyutertexnikasi';
+import Televizorlarvaaudiotexnikalar from './AllCategores/Televizorlarvaaudiotexnikalar';
+import Iqlimtexnikasi from './AllCategores/Iqlimtexnikasi';
+import Maishiytexnika from './AllCategores/Maishiytexnika';
+import Ofisjihozlari from './AllCategores/Ofisjihozlari';
+import Oshxonauchuntexnika from './AllCategores/Oshxonauchuntexnika';
+import Uyuchunidishlar from './AllCategores/Uyuchunidishlar';
+import Avtomobiluchunmahsulotlar from './AllCategores/Avtomobiluchunmahsulotlar';
+import Gozallikvasalomatlik from './AllCategores/Gozallikvasalomatlik';
+import Qurilishvatamirlash from './AllCategores/Qurilishvatamirlash';
+import Boguchuntexnika from './AllCategores/Boguchuntexnika';
+import Sportvasevimlimashgulot from './AllCategores/Sportvasevimlimashgulot';
+import Maishiymahsulotlar from './AllCategores/Maishiymahsulotlar';
+import Aksiyalarvaсhegirmalar from './AllCategores/Aksiyalarvaсhegirmalar';
+
 
 const router = createBrowserRouter([
     {
@@ -296,6 +312,70 @@ const router = createBrowserRouter([
     {
         path: "/help",
         element: <Help />
+    },
+    {
+        path: "/allcategories",
+        element: <AllCattegores />
+    },
+    {
+        path: "/smartfonlarvagadjetlar",
+        element: <Smartfonvagadjetlar />
+    },
+    {
+        path: "/kompyutertexnikasi",
+        element: <Kompyutertexnikasi />
+    },
+    {
+        path: "/televizorlarvaaudiotexnikalar",
+        element: <Televizorlarvaaudiotexnikalar />
+    },
+    {
+        path: "/iqlimtexnikasi",
+        element: <Iqlimtexnikasi />
+    },
+    {
+        path: "/maishiytexnika",
+        element: <Maishiytexnika />
+    },
+    {
+        path: "/ofisjihozlari",
+        element: <Ofisjihozlari />
+    },
+    {
+        path: "/oshxonauchuntexnika",
+        element: <Oshxonauchuntexnika />
+    },
+    {
+        path: "/uyuchunidishlar",
+        element: <Uyuchunidishlar />
+    },
+    {
+        path: "/avtomobiluchunmahsulotlar",
+        element: <Avtomobiluchunmahsulotlar />
+    },
+    {
+        path: "/gozallikvasalomatlik",
+        element: <Gozallikvasalomatlik />
+    },
+    {
+        path: "/qurilishvatamirlash",
+        element: <Qurilishvatamirlash />
+    },
+    {
+        path: "/boguchuntexnika",
+        element: <Boguchuntexnika />
+    },
+    {
+        path: "/sportvasevimlimashgulot",
+        element: <Sportvasevimlimashgulot />
+    },
+    {
+        path: "/maishiymahsulotlar",
+        element: <Maishiymahsulotlar />
+    },
+    {
+        path: "/aksiyalarvaсhegirmalar",
+        element: <Aksiyalarvaсhegirmalar />
     },
 ]);
 

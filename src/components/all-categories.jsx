@@ -52,12 +52,11 @@ const Allcategories = () => {
                 {Object.keys(category)
                   .filter(key => key.startsWith('description'))
                   .map((descKey, idx) => (
-                    <Link>
-                      <li className="text-[14px] mt-2 hover:text-orange-300 transition-colors duration-300 cursor-pointer" key={idx}>
+                    <li className="text-[14px] mt-2 hover:text-orange-300 transition-colors duration-300 cursor-pointer" key={idx}>
+                      <Link to={`/${category[`dsc${idx + 1}`]}`}>
                         {category[descKey]}
-                      </li>
-                    </Link>
-
+                      </Link>
+                    </li>
                   ))}
               </ul>
             </div>

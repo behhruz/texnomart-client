@@ -377,6 +377,11 @@ const router = createBrowserRouter([
         path: "/aksiyalarvaсhegirmalar",
         element: <Aksiyalarvaсhegirmalar />
     },
+    {
+        path: "/telefonlar",
+        element: <Telefonlar />
+    }
+
 ]);
 
 ReactDOM.render(

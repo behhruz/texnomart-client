@@ -1,5 +1,4 @@
-import React from 'react'
-
+import React, { useContext } from 'react'
 const FooterSection = () => {
     return (
         <div className=''>

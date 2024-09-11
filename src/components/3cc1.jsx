@@ -1,16 +1,39 @@
-import React from 'react';
-import useFetch from '../Hooks/useFetch';
-import './Card.css';
+import React, { useState, useEffect } from 'react';
+import './smartphones.css';
 
 const Krups = () => {
-  const filterKrupsProducts = (data) => {
-    return data.filter(product => product.brand?.toLowerCase() === "krups");
-  };
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const { data: products, loading, error } = useFetch('http://localhost:5000/Products', filterKrupsProducts);
+  useEffect(() => {
+    fetch('http://localhost:5000/Products')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log('Fetched data:', data);
+        if (Array.isArray(data)) {
+          const filteredProducts = data.filter(product => product.brand && product.brand.toLowerCase() === "krups".toLowerCase());
+          console.log('Filtered products:', filteredProducts);
+          setProducts(filteredProducts);
+        } else {
+          throw new Error('Unexpected data format');
+        }
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        setError(error);
+        setLoading(false);
+      });
+  }, []);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error fetching data: {error}</p>;
+  if (error) return <p>Error fetching data: {error.message}</p>;
 
   return (
     <div className="products-container">

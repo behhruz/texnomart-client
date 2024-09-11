@@ -1,124 +1,27 @@
-/* ProductDetails.css */
-
-.product-details {
-    max-width: 1000px;
-    margin: 20px auto;
+.product-detail-container {
     padding: 20px;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
   }
   
-  .product-details h1 {
-    font-size: 2rem;
+  .product-detail-container h1 {
     margin-bottom: 20px;
-    color: #333333;
   }
   
-  .product-details img {
-    max-width: 100%;
+  .product-image {
+    width: 100px;
     height: auto;
-    border-radius: 8px;
+    object-fit: cover;
     margin-bottom: 20px;
   }
   
-  .product-details .description {
+  .product-detail-container p {
     font-size: 1.1rem;
-    line-height: 1.6;
-    color: #666666;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
   
-  .product-details .price-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  .product-details .price {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #000000;
-  }
-  
-  .product-details .old-price {
-    font-size: 1.2rem;
-    color: #999999;
-    text-decoration: line-through;
-    margin-left: 10px;
-  }
-  
-  .product-details .brand,
-  .product-details .category,
-  .product-details .stock-status {
-    font-size: 1rem;
-    color: #444444;
-    margin-bottom: 10px;
-  }
-  
-  .product-details .stock-status {
-    font-weight: bold;
-  }
-  
-  .product-details .giftbox-badge {
-    background-color: #ff5722;
-    color: #ffffff;
-    padding: 10px 15px;
-    border-radius: 4px;
-    display: inline-block;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
-  .product-details .cost-month {
-    font-size: 1.2rem;
-    color: #333333;
-    margin-top: 20px;
-  }
-  
-  .product-details .cost-month-2 {
-    font-weight: bold;
-    color: #e91e63;
-    margin-left: 5px;
-  }
-  
-  .product-details .error-message {
-    color: #e91e63;
-    font-size: 1rem;
-    margin-top: 20px;
-    font-weight: bold;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .product-details {
-      padding: 15px;
-    }
-  
-    .product-details h1 {
-      font-size: 1.5rem;
-    }
-  
-    .product-details .price-container {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-  
-    .product-details .price {
-      font-size: 1.2rem;
-    }
-  
-    .product-details .old-price {
-      font-size: 1rem;
-    }
-  
-    .product-details .cost-month {
-      font-size: 1rem;
-    }
-  
-    .product-details .cost-month-2 {
-      font-size: 1rem;
-    }
+  del {
+    color: #999;
   }
   

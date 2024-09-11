@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import useFetch from '../Hooks/useFetch';
 import './smartphones.css';
 
@@ -7,10 +7,10 @@ const AllCategories = ({ addToCart }) => {
   const { data: products, loading, error } = useFetch('http://localhost:5000/Products');
   const [minPrice, setMinPrice] = useState('');
   const [maxPrice, setMaxPrice] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate hook
+  const navigate = useNavigate();
 
   const handleProductClick = (id) => {
-    navigate(`/product/${id}`); // Navigate to the product details page by product id
+    navigate(`/product/${id}`);
   };
 
   const handleFilter = () => {

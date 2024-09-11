@@ -1,50 +1,28 @@
-// ProductDetails.js
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { useParams } from 'react-router-dom';
-import './smartphones.css'; // Use the same CSS file if needed
+import useFetch from '../Hooks/useFetch';
+import './productDetails.css';
 
-const ProductDetails = () => {
+const ProductDetail = () => {
   const { id } = useParams();
-  const [product, setProduct] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
-
-  useEffect(() => {
-    fetch(`http://localhost:5000/Products/${id}`)
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.json();
-      })
-      .then(data => {
-        setProduct(data);
-        setLoading(false);
-      })
-      .catch(error => {
-        setError(error);
-        setLoading(false);
-      });
-  }, [id]);
+  const { data: product, loading, error } = useFetch(`http://localhost:5000/Products/${id}`);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error fetching data: {error.message}</p>;
+  if (error) return <p>Error fetching product data: {error}</p>;
 
-  if (!product) return <p>Product not found</p>;
+  if (!product) return <p>Product not found.</p>;
 
   return (
-    <div className="product-details">
+    <div className="product-detail-container">
       <h1>{product.title}</h1>
-      <img src={product.url || '/default-image.png'} alt={product.title} />
-      <p>{product.description}</p>
-      <p><strong>Price:</strong> {product.price}</p>
-      <p><strong>Brand:</strong> {product.brand}</p>
-      <p><strong>Category:</strong> {product.category}</p>
-      <p><strong>Available:</strong> {product.isSell ? 'In Stock' : 'Out of Stock'}</p>
-      {product.isGift && <p><strong>Giftbox:</strong> Yes</p>}
-      <p><strong>Cost per Month:</strong> {product.costMonth1} {product.costMonth2 ? `+ ${product.costMonth2}` : ''}</p>
+      <img src={product.url || '/default-image.png'} alt={product.title} className="product-image" />
+      <p>Price: {product.price} сўм</p>
+      <p>Description: {product.description || 'No description available'}</p>
+      <p>Monthly Payment: от {product.monthlyPayment} сўм /24 мес.</p>
+      <p>Savings: Выгода {product.savingAmount} сўм</p>
+      {product.oldprice && <p>Old Price: <del>{product.oldprice} сўм</del></p>}
     </div>
   );
 };
 
-export default ProductDetails;
+export default ProductDetail;

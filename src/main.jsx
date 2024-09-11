@@ -12,13 +12,14 @@ import Smartphones from "./components/smartphones";
 import Refrigerators from "./components/refrigerators";
 import Vacuumcleaners from "./components/vacuum-cleaners";
 import Allcatigories from "./components/all-categories";
-import Favorites from "./components/Favorites";
+// import Favorites from "./components/Favorites";
 import Cart from "./components/Cart";
 import Stores from "./components/Stores";
 import Legal from "./components/Legal";
 import PaymentMethods from "./components/PaymentMethods";       
 import LoginPage from "./components/LoginPage";
 import Card from "./components/Card";
+import Favorites from "./components/Favorites";
 
 
 const router = createBrowserRouter([
@@ -56,7 +57,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/favorites",
-        element: <Favorites />,
+        element: <Favorites/>,
     },
     {
         path: "/cart",
